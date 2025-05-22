@@ -31,7 +31,9 @@ NOTE: You do _not_ have to run `cargo build` before running `cargo run`
 
 ### Run an individual file
 
-Navigate to the folder where your code file is located. If your code file is named `a1.rs`, for example, then you would run this:
+Code files need to be inside the `src/bin` directory or the available binary targets need to be listed in the `Cargo.toml` file under the `[bin]` section.
+
+Then you can navigate to the directory where your code file is located and run the code. For example, if your code file is named `a1.rs`, then you would run this:
 
 ```
 cargo run --bin a1
@@ -39,9 +41,7 @@ cargo run --bin a1
 
 NOTE: The `--bin` flag stands for binary.
 
-
 *Source: https://code.visualstudio.com/docs/languages/rust#_hello-world*
-
 
 
 ## Update Rust
@@ -78,5 +78,6 @@ fn main() {
 # else if vs match
 
 * Prefer `match` over `else if` when working with a single variable.
-* `match` considers all possibilities and uses more robust code.
+* `match` considers all possibilities and creates more robust code  (i.e. there is greater confidence that your code is error free).
 * Use an underscore as a match "catch all" (similar to `else` clauses).
+* When `match` is used with enums, your programs can be more robust.

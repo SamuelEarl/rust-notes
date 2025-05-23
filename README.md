@@ -81,3 +81,14 @@ fn main() {
 * `match` considers all possibilities and creates more robust code  (i.e. there is greater confidence that your code is error free).
 * Use an underscore as a match "catch all" (similar to `else` clauses).
 * When `match` is used with enums, your programs can be more robust.
+
+# Structs vs Tuples
+
+* Structs are like objects in JavaScript and Dictionaries in Python.
+* It is recommended to use structs when you are working with a data structure that has more than 2 or 3 fields because structs have named values, which can help you keep your code organized.
+
+# Expressions
+
+* Rust is an expression-based language, which means that you can set a variable to equal the result of a condition evaluation (e.g. with an `if else` or `match` statement). 
+* This is similar to JavaScript ternary expressions. 
+* See the `expressions.rs` file for an example.

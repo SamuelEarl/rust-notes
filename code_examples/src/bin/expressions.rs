@@ -12,4 +12,16 @@
 // * Use a match expression to determine which message
 //   to print
 
-fn main() {}
+fn print_msg(gt_100: bool) {
+    match gt_100 {
+        true => println!("it's big"),
+        false => println!("it's small"),
+    }
+}
+
+fn main() {
+    let n = 101;
+    let is_big = n > 100;
+
+    print_msg(is_big);
+}

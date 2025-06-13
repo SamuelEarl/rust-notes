@@ -1,6 +1,6 @@
 # Timestamp
 
-3:13:26 => Demo - impl
+3:34:02 => Exercise - Impl
 
 # Rust Notes
 
@@ -96,3 +96,7 @@ fn main() {
 * Rust is an expression-based language, which means that you can set a variable to equal the result of a condition evaluation (e.g. with an `if else` or `match` statement). 
 * This is similar to JavaScript ternary expressions. 
 * See the `expressions.rs` file for an example.
+
+# Implementations (impl)
+
+* `impl` blocks are similar to methods in class-based programming languages.

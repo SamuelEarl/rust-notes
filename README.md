@@ -4,7 +4,7 @@ These notes are taken from [The Rust Programming Language](https://doc.rust-lang
 
 ---
 
-## Installation
+# Installation
 
 https://doc.rust-lang.org/book/ch01-01-installation.html
 
@@ -22,7 +22,7 @@ rustc --version
 cargo --version
 ```
 
-### Updating and Uninstalling
+## Updating and Uninstalling
 
 https://doc.rust-lang.org/book/ch01-01-installation.html#updating-and-uninstalling
 
@@ -36,21 +36,21 @@ There are new stable versions of Rust published every 6 weeks so this is a good 
 
 ---
 
-## Scaffold, Build, Run Rust Programs
+# Scaffold, Build, Run Rust Programs
 
 You can scaffold a new project with Cargo. Run the following commands from your project's root directory.
 
-### Scaffold a Rust project
+## Scaffold a Rust project
 
 ```
 cargo new <project_name>
 ```
 
-### Compile (or build) a program
+## Compile (or build) a program
 
 These commands assume that you are using Cargo (recommended).
 
-#### Compile
+### Compile
 
 ```
 cargo build
@@ -60,7 +60,7 @@ cargo build
 
 Cargo also provides a command called `cargo check`. This command quickly checks your code to make sure it compiles but doesn’t produce an executable, which is faster for development.
 
-#### Run an entire program
+### Run an entire program
 
 ```
 cargo run
@@ -71,7 +71,7 @@ cargo run
 NOTE: You do _not_ have to run `cargo build` before running `cargo run`
 
 
-#### Run an individual file
+### Run an individual file
 
 Code files need to be inside the `src/bin` directory or the available binary targets need to be listed in the `Cargo.toml` file under the `[bin]` section.
 
@@ -86,7 +86,7 @@ NOTE: The `--bin` flag stands for binary.
 *Source: https://code.visualstudio.com/docs/languages/rust#_hello-world*
 
 
-#### Compiling with rustc instead of Cargo
+### Compiling with rustc instead of Cargo
 
 ```
 // Compile the source code

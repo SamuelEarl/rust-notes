@@ -66,7 +66,7 @@ Cargo also provides a command called `cargo check`. This command quickly checks 
 cargo run
 ```
 
-`cargo run` will build and run a project. This command will find the executable file and run it, which is the same as running it manually by running `./target/debug/<executable_file>` in your terminal.
+`cargo run` will compile your program and run it. This command will find the executable file and run it, which is the same as running it manually by running `./target/debug/<executable_file>` in your terminal.
 
 NOTE: You do _not_ have to run `cargo build` before running `cargo run`
 

@@ -5,7 +5,7 @@
 * Prefer `match` over `else if` when working with a single variable.
 * `match` considers all possibilities and creates more robust code  (i.e. there is greater confidence that your code is error free).
 * Use an underscore as a match "catch all" (similar to `else` clauses).
-* When `match` is used with enums, your programs can be more robust because they catch every possible scenario.
+* Matches in Rust are exhaustive: we must exhaust every last possibility in order for the code to be valid. When `match` is used with enums, your programs can be more robust because enums account for every possibility.
 
 ## Expressions
 

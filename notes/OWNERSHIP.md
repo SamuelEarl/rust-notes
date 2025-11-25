@@ -25,3 +25,13 @@ Keep these rules in mind:
 * Each value in Rust has an owner.
 * There can only be one owner at a time.
 * When the owner goes out of scope, the value will be dropped.
+
+Four general strategies can help with ownership issues:
+
+* Use references where full ownership is not required.
+    * The most common change you will make to your code is to reduce the level of access you require. Instead of requesting ownership, you can use a "borrow" (aka reference) in your function definitions. For read-only access, use `&T`. For read-write access, use `&mut T`.
+        * NOTE: Adding the `&mut` prefix to a moveable parameter type (i.e. a non-copyable type) allows the calling scope to retain ownership of the data that was passed in the function call while at the same time allowing the function that was called to mutate the data that was passed to it.
+    * Ownership might be needed in advanced cases, such as when functions want to adjust the lifetime of their arguments. For example, you can move the ownership of a variable into a function (by passing the variable into that function) and when the function returns, do not return the variable. This will cause the variable to be deleted and its lifetime will end there.
+* Duplicate the value.
+* Refactor code to reduce the number of long-lived objects.
+* Wrap your data in a type designed to assist with movement issues.

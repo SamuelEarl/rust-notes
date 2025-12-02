@@ -3,56 +3,80 @@
 #[derive(Debug)]
 struct CubeSat {
     id: u64,
-    mailbox: Mailbox,
 }
 
 impl CubeSat {
-    fn recv(&mut self) -> Option<Message> {
-        self.mailbox.messages.pop()
+    fn recv(&self, mailbox: &mut Mailbox) -> Option<Message> {
+        mailbox.deliver(&self)
     }
-}
-
-#[derive(Debug)]
-enum StatusMessage {
-    Ok,
 }
 
 #[derive(Debug)]
 struct Mailbox {
-    messages: Vec<Message>
+    messages: Vec<Message>,
 }
 
-type Message = String;
+impl Mailbox {
+    fn post(&mut self, msg: Message) {
+        self.messages.push(msg);
+    }
 
-struct GroundStation;
+    fn deliver(&mut self, recipient: &CubeSat) -> Option<Message> {
+        for i in 0..self.messages.len() {
+            if self.messages[i].to == recipient.id {
+                let msg = self.messages.remove(i);
+                return Some(msg);
+            }
+        }
 
-impl GroundStation {
-    fn send(
-        &self,
-        to: &mut CubeSat,
-        msg: Message,
-    ) {
-        to.mailbox.messages.push(msg);
+        None
     }
 }
 
-fn check_status(sat_id: &CubeSat) -> StatusMessage {
-    StatusMessage::Ok
+#[derive(Debug)]
+struct Message {
+    to: u64,
+    content: String,
+}
+
+struct GroundStation {}
+
+impl GroundStation {
+    fn connect(&self, sat_id: u64) -> CubeSat {
+        CubeSat { id: sat_id }
+    }
+
+    fn send(&self, mailbox: &mut Mailbox, msg: Message) {
+        mailbox.post(msg);
+    }
+}
+
+fn fetch_sat_ids() -> Vec<u64> {
+    vec![1, 2, 3]
 }
 
 fn main() {
-    let sat_a = CubeSat { id: 0, mailbox: Mailbox { messages: vec![] } };
-    let sat_b = CubeSat { id: 1 };
-    let sat_c = CubeSat { id: 2 };
+    let mut mail = Mailbox { messages: vec![] };
 
-    let a_status = check_status(&sat_a);
-    let b_status = check_status(&sat_b);
-    let c_status = check_status(&sat_c);
-    println!("a: {:?}, b: {:?}, c: {:?}", a_status, b_status, c_status);
+    let base = GroundStation {};
 
-    // "waiting" ...
-    let a_status = check_status(&sat_a);
-    let b_status = check_status(&sat_b);
-    let c_status = check_status(&sat_c);
-    println!("a: {:?}, b: {:?}, c: {:?}", a_status, b_status, c_status);
+    let sat_ids = fetch_sat_ids();
+
+    for sat_id in sat_ids {
+        let sat = base.connect(sat_id);
+        let msg = Message {
+            to: sat_id,
+            content: String::from("hello"),
+        };
+        base.send(&mut mail, msg);
+    }
+
+    let sat_ids = fetch_sat_ids();
+
+    for sat_id in sat_ids {
+        let sat = base.connect(sat_id);
+
+        let msg = sat.recv(&mut mail);
+        println!("{:?}: {:?}", sat, msg);
+    }
 }

@@ -12,7 +12,7 @@ pub struct Vehicle {
 }
 ```
 
-When you initialize an object from that struct, any optional values have to be either `None` or `Some` and `Some` has to wrap a value. For example:
+When you initialize an object from that struct, any optional values have to be either `None` or `Some` and `Some` has to wrap a value. For example, if your struct defines a field as `Option<String>`, then you have to wrap `Some()` around that string value:
 
 ```rust
 Json::from(Vehicle {
@@ -23,7 +23,9 @@ Json::from(Vehicle {
 })
 ```
 
-Here's another example used in Leptos that shows how to define default values and how to use those default values:
+## Leptos example
+
+Here's another example used in Leptos that shows how to define default values and how to use both custom value and default values:
 
 ```rust
 #[derive(Clone, Debug)]

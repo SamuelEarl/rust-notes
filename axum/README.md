@@ -9,7 +9,7 @@
 
 [Rust Bacon - Next Gen Cargo Watch](https://www.youtube.com/watch?v=mVsF9N-Uarg)
 
-## How to use test driven development (TDD) in this project
+## How to run the code in this project using TDD
 
-1. Open a terminal and run your server with `make watch-src`.
-2. Open a second terminal and run your testing framework with `make watch-tests`.
+1. Open a terminal and run the server with `make watch-src`.
+2. Open a second terminal and run the API testing framework with `make watch-tests`.

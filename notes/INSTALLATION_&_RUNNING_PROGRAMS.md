@@ -40,6 +40,20 @@ You can scaffold a new project with Cargo. Run the following commands from your 
 cargo new <project_name>
 ```
 
+## Install dependencies
+
+Install the latest version:
+
+```
+cargo add uuid
+```
+
+Install the latest version along with specific features:
+
+```
+cargo add uuid --features=fast-rng, v7
+```
+
 ## Compile (or build) a program
 
 These commands assume that you are using Cargo (recommended).

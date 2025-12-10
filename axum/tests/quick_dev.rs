@@ -6,7 +6,7 @@ use serde_json::json;
 #[tokio::test]
 async fn quick_dev() -> Result<()> {
     // The ? means: If this function call returns an Err, return it immediately from the current function. If it’s Ok(value), extract the value and keep going.
-    let hc = httpc_test::new_client("http://localhost:8080")?;
+    let hc = httpc_test::new_client("http://localhost:3000")?;
 
     // How To Test A Route: 
     // 1. Follow the instructions in the README for test-driven development (TDD).
@@ -14,12 +14,12 @@ async fn quick_dev() -> Result<()> {
     // NOTES:
     // * Each await waits for an asynchronous operation to finish. Each ? checks for errors and returns early if something failed.
     // * So this line means: Make an HTTP GET request to /query-params-route. Wait for the response. If it succeeded, print it; otherwise, return the error. Wait for printing to finish. If that also succeeded, continue; otherwise, return the error.”
-    hc.do_get("/query-params-route?name=Sam").await?.print().await?;
+    hc.do_get("/query-params-route?first_name=Sam&last_name=Earl").await?.print().await?;
     hc.do_get("/path-params-route/Sam").await?.print().await?;
-    hc.do_get("/vehicle").await?.print().await?;
+    hc.do_get("/api/vehicles/1234").await?.print().await?;
     // Example of calling a post route with a payload:
     hc.do_post(
-        "/vehicle", 
+        "/api/vehicles/create", 
         json!({
             "manufacturer": "Honda",
             "model": "Accord",

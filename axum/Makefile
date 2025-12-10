@@ -1,7 +1,3 @@
-# -q      = quiet
-# -c      = clear (in between each recompile)
-# -w src/ = watch the folder that is listed after the -w
-# -x run  = execute the command that is listed after the -x
 watch-src:
 	bacon run
 

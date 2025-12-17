@@ -20,6 +20,12 @@ cargo --version
 
 https://doc.rust-lang.org/book/ch01-01-installation.html#updating-and-uninstalling
 
+View `rustup` commands:
+
+```
+rustup
+```
+
 You can keep your Rust installation up to date with the latest version by running:
 
 ```

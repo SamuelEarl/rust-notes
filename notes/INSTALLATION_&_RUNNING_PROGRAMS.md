@@ -69,7 +69,11 @@ These commands assume that you are using Cargo (recommended).
 Navigate to the project root directory (i.e. the directory that contains the `Cargo.toml` file) and run the following command:
 
 ```
+// Compile the source code
 cargo build
+
+// Run the compiled code
+./target/debug/<your_project_name>
 ```
 
 `cargo build` will look for a `main.rs` file inside the `src` directory and compile it. The compilation step will create a `target` directory with a bunch more files and directories inside. By default, the executable file will have the same name as the project root directory and it will be located inside the `target/debug` directory.
@@ -104,7 +108,7 @@ NOTE: The `--bin` flag stands for binary.
 *Source: https://code.visualstudio.com/docs/languages/rust#_hello-world*
 
 
-### Compiling with rustc instead of Cargo
+### How to compile with rustc instead of Cargo
 
 ```
 // Compile the source code

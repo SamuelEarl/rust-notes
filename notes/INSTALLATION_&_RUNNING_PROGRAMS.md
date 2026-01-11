@@ -69,14 +69,26 @@ These commands assume that you are using Cargo (recommended).
 Navigate to the project root directory (i.e. the directory that contains the `Cargo.toml` file) and run the following command:
 
 ```
-// Compile the source code
+// Compile the source code in debug mode
 cargo build
 
 // Run the compiled code
 ./target/debug/<your_project_name>
 ```
 
+The `cargo build` command creates a debug version, which is an unoptimized version that compiles faster.
+
 `cargo build` will look for a `main.rs` file inside the `src` directory and compile it. The compilation step will create a `target` directory with a bunch more files and directories inside. By default, the executable file will have the same name as the project root directory and it will be located inside the `target/debug` directory.
+
+```
+// Compile the source code in release mode
+cargo build --release
+
+// Run the compiled code
+./target/release/<your_project_name>
+```
+
+The `--release` flag creates an optimized, production-ready binary version that takes longer to compile.
 
 Cargo also provides a command called `cargo check`. This command quickly checks your code to make sure it compiles but doesn’t produce an executable, which is faster for development.
 

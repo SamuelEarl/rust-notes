@@ -154,7 +154,7 @@ fn greet(mut name: String) {
     // NAME DEREF: John
     ```
 * If you are taking **ownership** of data (via a `move` or `clone` operation) in order to **mutate** it, then use `String`.
-    * **`move`:** A `move` is the default operation that occurs when a `String` variable is reassign to a new variable. For example:
+    * **`move`:** A `move` is a transfer of ownership from one variable to another. This is the default operation that occurs when a `String` variable is reassigned to a new variable. For example:
     ```rust
     let person1: String = String::from("John"); // When the value of person1 is reassigned to person2 (in the next line), then person1 goes out of scope and becomes invalid.
 
@@ -183,8 +183,8 @@ fn greet(mut name: String) {
 ### From `&str` to `String`
 
 ```rust
-let version1 = "hello".to_string();
-let version2 = String::from("hello");
+let version1: String = "hello".to_string();
+let version2: String = String::from("hello");
 ```
 
 ### From `String` to `&str`:

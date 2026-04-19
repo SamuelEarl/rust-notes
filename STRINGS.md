@@ -250,8 +250,8 @@ A `str` without the explicit `'static` marker is a generic string slice. Its lif
 
 There are four possible ways to define an owned `String` parameter in a function:
 
-1. `param: String`: Owned String. This parameter will take full ownership of the `String`, but it does not have permission to mutate it.
-2. `mut param: String`: Mutable owned String. This parameter will take full ownership of the `String` and it has permission to mutate it.
+1. `param: String`: (Owned) String. This parameter will take full ownership of the `String`, but it does not have permission to mutate it.
+2. `mut param: String`: Mutable (owned) String. This parameter will take full ownership of the `String` and it has permission to mutate it.
 3. `param: &String`: (Owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter does not have permission to mutate the `String`.
 4. `param: &mut String`: Mutable (owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter has permission to mutate the `String`.
 

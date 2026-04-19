@@ -1,5 +1,7 @@
 # Ownership
 
+NOTE: Also refer to the STRINGS.md file.
+
 [What Is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)
 
 * Both the stack and the heap are parts of memory available to your code to use at runtime.

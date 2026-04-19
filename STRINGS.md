@@ -1,5 +1,7 @@
 # Strings
 
+NOTE: Also refer to the OWNERSHIP.md file.
+
 ## Rust has two core string types and reference versions of those string types
 
 ### String Slice (or Borrowed String)
@@ -243,6 +245,49 @@ A `str` without the explicit `'static` marker is a generic string slice. Its lif
 | **Coercion** | Can be downgraded to a regular `&str`. | Cannot be upgraded to `'static` (unless leaked). |
 
 <br />
+
+## What is the difference between a mutable (owned) String and a mutable (owned) String reference?
+
+There are four possible ways to define an owned `String` parameter:
+
+1. `name: String`: Owned String. This parameter will take full ownership of the `String`, but it does not have permission to modify (or mutate) it.
+2. `mut name: String`: Mutable owned String. This parameter will take full ownership of the `String` and it has permission to modify (or mutate) it.
+3. `name: &String`: (Owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter does not have permission to modify the `String`.
+4. `name: &mut String`: Mutable (owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter has permission to modify the `String`.
+
+**Example of using a mutable (owned) String:**
+
+```rust
+fn main() {
+    let name: String = String::from("John"); // It is not necessary to use the `mut` keyword in this case.
+    let greeting = greet(name); // Call with `String`
+    println!("{greeting}");
+}
+
+fn greet(mut name: String) -> String { // Specify the `name` parameter as a mutable String. Also, you need to specify a function return type.
+    name.push_str(", how are you?");
+    name // Since the greet() function took ownership of the String, you have to return ownership back to the calling function if you want to use the String again in the calling function.
+}
+```
+
+**Example of using a mutable (owned) String reference:**
+
+```rust
+fn main() {
+    let mut name: String = String::from("John"); // It is necessary to use the `mut` keyword in this case.
+    greet(&mut name); // Call with `&mut String`. Ownership was not tranferred, so ownership does not need to be returned. You can still use `name` in this function.
+    println!("{name}");
+}
+
+fn greet(name: &mut String) { // The `name` parameter is a mutable reference to the String.
+    name.push_str(", how are you?"); // Since the parameter is a mutable String reference you can mutate the String reference and you don't have to return it.
+}
+```
+
+### When would you use the mutable String options?
+
+You could use either option (mutable String or mutable String reference). It just depends if you want/need to tranfer ownship to another function or not.
+
 
 ## String Interpolation
 

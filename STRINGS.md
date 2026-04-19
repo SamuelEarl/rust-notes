@@ -248,12 +248,12 @@ A `str` without the explicit `'static` marker is a generic string slice. Its lif
 
 ## What is the difference between a mutable (owned) String and a mutable (owned) String reference?
 
-There are four possible ways to define an owned `String` parameter:
+There are four possible ways to define an owned `String` parameter in a function:
 
-1. `name: String`: Owned String. This parameter will take full ownership of the `String`, but it does not have permission to modify (or mutate) it.
-2. `mut name: String`: Mutable owned String. This parameter will take full ownership of the `String` and it has permission to modify (or mutate) it.
-3. `name: &String`: (Owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter does not have permission to modify the `String`.
-4. `name: &mut String`: Mutable (owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter has permission to modify the `String`.
+1. `param: String`: Owned String. This parameter will take full ownership of the `String`, but it does not have permission to mutate it.
+2. `mut param: String`: Mutable owned String. This parameter will take full ownership of the `String` and it has permission to mutate it.
+3. `param: &String`: (Owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter does not have permission to mutate the `String`.
+4. `param: &mut String`: Mutable (owned) String reference. This parameter will reference the owned `String`, but will not take ownership of the `String`. This parameter has permission to mutate the `String`.
 
 **Example of using a mutable (owned) String:**
 

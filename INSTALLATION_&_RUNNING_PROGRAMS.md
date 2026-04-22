@@ -54,10 +54,27 @@ Install the latest version:
 cargo add uuid
 ```
 
-Install the latest version along with specific features:
+Install the latest version along with a single feature:
 
+```bash
+# Both of these option work for a single feature
+cargo add uuid --features v7
+cargo add uuid --features uuid/v7
 ```
-cargo add uuid --features=fast-rng, v7
+
+Install the latest version along with multiple features:
+
+```bash
+# Wrap the features in quotes, separated by a space
+cargo add uuid --features "v7 js" 
+# Specify the features to add to uuid
+cargo add uuid --features uuid/v7,uuid/js
+```
+
+Install the latest version of multiple crates along with associated features:
+
+```bash
+cargo add uuid serde --features uuid/v7,serde/derive
 ```
 
 ## Compile (or build) a program
